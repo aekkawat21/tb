@@ -1,0 +1,19 @@
+<h1>ค้นหารายวิชาในหลักสูตร</h1>
+<h4>ค้นหาจากชื่อวิชา</h4>
+<form action="/search_name/" method="GET">
+    <label for="name">รหัสวิชา:</label>
+    <input type="text" id="name" name="name">
+    <button type="submit">ค้นหา</button>
+</form>
+<div>
+    {% if search_name %}
+        <h2>รายวิชาที่พบ</h2>
+        <ul>
+            {% for name in search_name %}
+                <li>{{ name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>ไม่พบรายวิชา</p>
+    {% endif %}
+</div>
